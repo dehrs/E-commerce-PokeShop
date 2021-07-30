@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { MdShoppingBasket } from 'react-icons/md';
+import { MdShoppingCart } from 'react-icons/md';
 
 import logo from '../../assets/logo.png';
 import { Container, Cart } from './styles';
-// import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../hooks/useCart';
 
 const Header = () => {
-  // const { cart } = useCart();
-  // const cartSize = cart.length
+  const { cart } = useCart();
+  const cartSize = cart.length
 
 
   return (
@@ -20,11 +20,10 @@ const Header = () => {
         <div>
           <strong>Meu carrinho</strong>
           <span>
-            {/* {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`} */}
-            {0} itens
+            {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}
           </span>
         </div>
-        <MdShoppingBasket size={36} color="#FFF" />
+        <MdShoppingCart size={36} color="#FFF" />
       </Cart>
     </Container>
   );
