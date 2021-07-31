@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const CartContext = createContext({});
 
@@ -15,7 +16,7 @@ export function CartProvider({ children }) {
     const amount = currentAmount + 1;
 
     if (amount > stockAmount) {
-      // toast.error('Quantidade solicitada fora de estoque');
+      toast.error('Quantidade solicitada fora de estoque');
       return;
     }
 
@@ -30,8 +31,7 @@ export function CartProvider({ children }) {
     }
 
     setCart(updatedCart);
-
-
+    toast.success('Produto Adicionado ao carrinho');
 
   };
 

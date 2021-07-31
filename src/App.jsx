@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import Routes from './routes';
 import { GlobalStyle } from './styles/global';
@@ -15,6 +16,7 @@ const App = () => {
           <GlobalStyle />
           <Header />
           <Routes />
+          <ToastContainer autoClose={3000} />
         </CartProvider>
       </ListPokemonProvider>
     </BrowserRouter>

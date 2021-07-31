@@ -12,13 +12,18 @@ export const ProductList = styled.ul`
     border-radius: 4px;
     padding: 20px;
 
-    img {
-      align-self: center;
-      width: 60%;
+    a {
+     display: flex;
+     justify-content: center;
 
-      &:hover {
-        transform: scale(1.1)
+      img{
+        width: 60%;
+
+        &:hover {
+          transform: scale(1.1)
+        }
       }
+
     }
 
     > strong {

@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import '@material/react-linear-progress/dist/linear-progress.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const GlobalStyle = createGlobalStyle`
  :root {
@@ -61,4 +63,7 @@ export const GlobalStyle = createGlobalStyle`
   cursor: pointer;
  }
 
+ .mdc-linear-progress__bar-inner{
+   background-color: var(--background-button);
+ }
 `;

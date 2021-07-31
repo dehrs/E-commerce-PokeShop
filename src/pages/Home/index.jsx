@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 import { InputSearch } from '../../components/Input-Search'
 
@@ -47,19 +48,22 @@ const Home = () => {
         handleSearchPokemon={e => handleSearchPokemon(e.target.value)}
       />
       <div className="grid-3_xs-1 grid-equalHeight" >
-        {pokemonsFiltered.map(product => (
-          <ProductList className="col" key={product.id}>
+        {pokemonsFiltered.map(pokemon => (
+          <ProductList className="col" key={pokemon.id}>
             <li>
-              <img src={`https://pokeres.bastionbot.org/images/pokemon/${product.id}.png`} alt={product.name} />
-              <strong>{product.name}</strong>
-              <span>{product.priceFormatted}</span>
+              <Link to={`/product/${pokemon.id}`}>
+                <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
+                  alt={pokemon.name} />
+              </Link>
+              <strong>{pokemon.name}</strong>
+              <span>{pokemon.priceFormatted}</span>
               <button
                 type="button"
-                onClick={() => handleAddProduct(product)}
+                onClick={() => handleAddProduct(pokemon)}
               >
                 <div>
                   <MdAddShoppingCart size={16} color="#FFF" />
-                  {cartItemsAmount[product.id] || 0}
+                  {cartItemsAmount[pokemon.id] || 0}
                 </div>
 
                 <span>ADICIONAR AO CARRINHO</span>
