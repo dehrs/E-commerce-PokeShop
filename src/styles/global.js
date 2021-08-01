@@ -6,22 +6,6 @@ export const GlobalStyle = createGlobalStyle`
  :root {
     --background: #6EC48B;
     --background-button: #E46654;
-    /* --text-title: #000000;
-    --text-body: #8D8D8D;
-    --background-header: #F1F1F1;
-    --background-link: #0000000d;
-    --background-step-active: #61CB46;
-    --color-line-step:#E8E8E8;
-    --background-step-disabled: #BEBEBE;
-    --background-panel: #F7F7F7;
-    --color-white:#FFFFFF;
-    --color-text-gray: #A5A5A5;
-    --color-text-gray1: #535353;
-    --color-gray-2: #BDBDBD;
-    --color-gray-3: #A8A8A8;
-    --color-gray-4: #808080;
-    --color-yellow: #FFCC00;
-    --color-text-promotion: #9E7D27; */
  }
 
  #root {

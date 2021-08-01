@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-
 export const ProductList = styled.ul`
   list-style: none;
 
@@ -27,7 +26,6 @@ export const ProductList = styled.ul`
     }
 
     > strong {
-      /* font-size: 16px; */
       margin-top: 15px;
       line-height: 20px;
       color: #333;
@@ -35,7 +33,6 @@ export const ProductList = styled.ul`
     }
 
     > span {
-      /* font-size: 21px; */
       font-weight: bold;
       margin: 5px 0 20px;
       align-self: center;
@@ -74,6 +71,7 @@ export const ProductList = styled.ul`
         font-weight: bold;
       }
     }
+
   }
 
 

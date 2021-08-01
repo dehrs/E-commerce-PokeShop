@@ -68,7 +68,7 @@ const ProductDescription = () => {
     <Container>
       <Content>
         <ContentImg>
-          <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonDescription.id}.png`}
+          <img src={pokemonDescription.image}
             alt={pokemonDescription.name} />
           <strong>{pokemonDescription.name}</strong>
           <span>{pokemonDescription.priceFormatted}</span>
@@ -96,7 +96,6 @@ const ProductDescription = () => {
                 <strong>Peso</strong>
               </p>
               <span>{pokemonDescription.weight}kg</span>
-
             </div>
           </PokemonDescription>
           <PokemonStats>

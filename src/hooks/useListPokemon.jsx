@@ -17,19 +17,19 @@ export function ListPokemonProvider({ children }) {
       for (let results of response.data.results) {
 
         const { data } = await axios.get(results.url);
-        const { id, name } = data;
+        const { id, name, sprites } = data;
 
         const result = {
           id,
           name,
           price: Math.floor(Math.random() * 1000),
-          stock: 10
+          stock: 10,
+          image: sprites.other.dream_world.front_default
         }
 
-        result.priceFormatted = formatValue(result.price)
+        result.priceFormatted = formatValue(result.price);
 
         listPokemon.push(result);
-
       }
 
       setPokemons(listPokemon);

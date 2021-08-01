@@ -9,6 +9,7 @@ export const Container = styled.div`
   footer {
     margin-top: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
@@ -28,6 +29,9 @@ export const Container = styled.div`
     }
   }
 `;
+export const Scroll = styled.div`
+  overflow-x: auto;
+`
 
 export const ProductTable = styled.table`
   width: 100%;
@@ -109,5 +113,9 @@ export const Total = styled.div`
   strong {
     font-size: 28px;
     margin-left: 5px;
+  }
+
+  @media (max-width: 424px) {
+      margin-top: 20px;
   }
 `;

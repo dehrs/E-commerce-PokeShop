@@ -28,7 +28,8 @@ const Home = () => {
     setPokemonsFiltered(
       pokemons.filter(
         filtered =>
-          filtered.name.toLowerCase().indexOf(inputFilter) !== -1,
+          filtered.name.toLowerCase().indexOf(inputFilter) !== -1 ||
+          filtered.id.toString().indexOf(inputFilter) !== -1 ,
       ),
     );
 
@@ -52,7 +53,7 @@ const Home = () => {
           <ProductList className="col" key={pokemon.id}>
             <li>
               <Link to={`/product/${pokemon.id}`}>
-                <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
+                <img src={pokemon.image}
                   alt={pokemon.name} />
               </Link>
               <strong>{pokemon.name}</strong>

@@ -9,7 +9,7 @@ export const InputSearch = ({ handleSearchPokemon }) => {
       <FiSearch size={18} color="#787878" />
       <input
         type="text"
-        placeholder="Procure pelo seu pokemon"
+        placeholder="Procure pelo nome do pokemon ou id"
         onChange={handleSearchPokemon}
       />
     </Container>

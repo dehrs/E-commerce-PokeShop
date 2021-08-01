@@ -44,7 +44,7 @@ export function CartProvider({ children }) {
       updatedCart.splice(idx, 1)
       setCart(updatedCart);
     } else {
-      throw Error();
+      toast.error('Erro na remoção do produto');
     }
 
   };
@@ -63,7 +63,7 @@ export function CartProvider({ children }) {
     const stockAmount = existProduct ? existProduct.stock : 0;
 
     if (amount > stockAmount) {
-
+      toast.error('Quantidade solicitada fora de estoque');
       return;
     }
 
@@ -71,9 +71,8 @@ export function CartProvider({ children }) {
       existProduct.amount = amount;
       setCart(updatedCart);
     } else {
-      throw Error();
+      toast.error('Erro na alteração de quantidade do produto');
     }
-
 
   };
 
