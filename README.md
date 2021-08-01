@@ -2,6 +2,7 @@
 
 Este projeto consiste em um e-commerce de compra de pokemons, para a listagem dos produtos foi utilizada a api de pokemons `https://pokeapi.co/`. 
 
+![](simulacao.gif)
 
 
 
