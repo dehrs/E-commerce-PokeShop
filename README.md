@@ -6,6 +6,7 @@ Este projeto consiste em um e-commerce de compra de pokemons, para a listagem do
 
 
 
+
 ## Funcionalidades 
   * Adicionar Produto ao carrinho
   * Alterar Quantidade
@@ -22,6 +23,7 @@ Este projeto consiste em um e-commerce de compra de pokemons, para a listagem do
 ## Para utilizar 
  * executar o comando `yarn`
  * e depois `yarn start`
+ * ou acessar https://tender-tesla-4f6b7e.netlify.app/
 
 
 
