@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <Container>
       <Link to="/">
-        <img src={logo} alt="Rocketshoes" />
+        <img src={logo} alt="PokeShop" />
       </Link>
 
       <Cart to="/cart">
