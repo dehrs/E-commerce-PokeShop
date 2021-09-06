@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import axios from 'axios';
-import LinearProgress from '@material/react-linear-progress';
+
 import { useListPokemon } from '../../hooks/useListPokemon';
 import { useCart } from '../../hooks/useCart';
+
+import { Skeleton } from '../../components/Skeleton';
+import { Loader } from '../../components/Loader';
+
+import LinearProgress from '@material/react-linear-progress';
 
 import { Container, Content, ContentImg, PokemonAbout, PokemonDescription, PokemonStats } from './styles';
 
@@ -16,6 +22,7 @@ const ProductDescription = () => {
   const [pokemonAbilities, setPokemonAbilities] = useState('');
   const [pokemonTypes, setPokemonTypes] = useState('');
   const [pokemonStats, setPokemonStats] = useState([]);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const loadPage = async () => {
@@ -66,68 +73,77 @@ const ProductDescription = () => {
 
   return (
     <Container>
-      <Content>
-        <ContentImg>
-          <img src={pokemonDescription.image}
-            alt={pokemonDescription.name} />
-          <strong>{pokemonDescription.name}</strong>
-          <span>{pokemonDescription.priceFormatted}</span>
-        </ContentImg>
+      {!pokemons.length ? <Loader /> :
+        <>
+          <Content>
+            <ContentImg>
+              {!imageLoaded && (
+                <>
+                  <Skeleton width="100px" height="10px" />
+                  <Skeleton width="100px" height="10px" />
+                  <Skeleton width="100px" height="10px" />
+                </>
+              )}
+              <img src={pokemonDescription.image}
+                alt={pokemonDescription.name} onLoad={() => setImageLoaded(true)} />
+              <strong>{pokemonDescription.name}</strong>
+              <span>{pokemonDescription.priceFormatted}</span>
+            </ContentImg>
 
-        <PokemonAbout>
-          <PokemonDescription>
-            <div>
-              <p>
-                <strong>Habilidades</strong>
-              </p>
-              <span>{pokemonAbilities}</span>
-              <p>
-                <strong>Tipo</strong>
-              </p>
-              <span>{pokemonTypes}</span>
-            </div>
+            <PokemonAbout>
+              <PokemonDescription>
+                <div>
+                  <p>
+                    <strong>Habilidades</strong>
+                  </p>
+                  <span>{pokemonAbilities}</span>
+                  <p>
+                    <strong>Tipo</strong>
+                  </p>
+                  <span>{pokemonTypes}</span>
+                </div>
 
-            <div>
-              <p>
-                <strong>Altura</strong>
-              </p>
-              <span>{pokemonDescription.height}m </span>
-              <p>
-                <strong>Peso</strong>
-              </p>
-              <span>{pokemonDescription.weight}kg</span>
-            </div>
-          </PokemonDescription>
-          <PokemonStats>
-            {pokemonStats.map(stat => (
-              <div key={stat.name}>
-                <p>
-                  <strong>{stat.name}</strong>
-                </p>
+                <div>
+                  <p>
+                    <strong>Altura</strong>
+                  </p>
+                  <span>{pokemonDescription.height}m </span>
+                  <p>
+                    <strong>Peso</strong>
+                  </p>
+                  <span>{pokemonDescription.weight}kg</span>
+                </div>
+              </PokemonDescription>
+              <PokemonStats>
+                {pokemonStats.map(stat => (
+                  <div key={stat.name}>
+                    <p>
+                      <strong>{stat.name}</strong>
+                    </p>
 
-                <span>{stat.baseState}</span>
-                <LinearProgress
-                  bufferingDots={false}
-                  buffer={1}
-                  progress={stat.baseStateConverted}
-                />
+                    <span>{stat.baseState}</span>
+                    <LinearProgress
+                      bufferingDots={false}
+                      buffer={1}
+                      progress={stat.baseStateConverted}
+                    />
 
-              </div>
-            ))}
-          </PokemonStats>
-        </PokemonAbout>
-
-
-      </Content>
+                  </div>
+                ))}
+              </PokemonStats>
+            </PokemonAbout>
+          </Content>
 
 
-      <footer>
-        <button type="button"
-          onClick={() => handleAddProduct()}
-        >ADICIONAR AO CARRINHO
-        </button>
+          <footer>
+            <button type="button"
+              onClick={() => handleAddProduct()}
+            >ADICIONAR AO CARRINHO
+            </button>
 
-      </footer>
+          </footer>
+        </>
+      }
     </Container>
   );
 };
